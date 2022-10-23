@@ -109,7 +109,7 @@
           - fonts-ipaexfont-gothic
           - cryptsetup
           - dnsmasq
-
+          - python3-rpi.gpio
   tasks:
   - name: change hostname
     hostname:
@@ -228,7 +228,7 @@
 
   - name: clone pwnagotchi repository
     git:
-      repo: https://github.com/evilsocket/pwnagotchi.git
+      repo: https://github.com/TQMatvey/pwnagotchi.git
       dest: /usr/local/src/pwnagotchi
     register: pwnagotchigit
 
