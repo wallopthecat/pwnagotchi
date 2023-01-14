@@ -53,6 +53,10 @@
           - triggerhappy
           - wpa_supplicant
           - nfs-common
+          - libraspberrypi0
+          - libraspberrypi-dev
+          - libraspberrypi-doc
+          - libraspberrypi-bin
         install:
           - rsync
           - vim
@@ -105,7 +109,7 @@
           - fonts-ipaexfont-gothic
           - cryptsetup
           - dnsmasq
-
+          - python3-rpi.gpio
   tasks:
     - name: change hostname
       hostname:
@@ -222,11 +226,11 @@
       command: "python3 -c 'import sys;print(sys.path.pop())'"
       register: pip_target
 
-    - name: clone pwnagotchi repository
-      git:
-        repo: https://github.com/evilsocket/pwnagotchi.git
-        dest: /usr/local/src/pwnagotchi
-      register: pwnagotchigit
+  - name: clone pwnagotchi repository
+    git:
+      repo: https://github.com/wallopthecat/pwnagotchi.git
+      dest: /usr/local/src/pwnagotchi
+    register: pwnagotchigit
 
     - name: create /usr/local/share/pwnagotchi/ folder
       file:
