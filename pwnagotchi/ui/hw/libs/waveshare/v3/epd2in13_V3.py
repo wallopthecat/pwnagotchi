@@ -183,7 +183,6 @@ class EPD:
         self.send_data(lut[157])    # VSL
         self.send_command(0x2c)     # VCOM
         self.send_data(lut[158])
-
     '''
     function : Setting the display window
     parameter:
@@ -197,7 +196,6 @@ class EPD:
         # x point must be the multiple of 8 or the last 3 bits will be ignored
         self.send_data((x_start>>3) & 0xFF)
         self.send_data((x_end>>3) & 0xFF)
-
         self.send_command(0x45) # SET_RAM_Y_ADDRESS_START_END_POSITION
         self.send_data(y_start & 0xFF)
         self.send_data((y_start >> 8) & 0xFF)
@@ -243,7 +241,6 @@ class EPD:
 
         self.SetWindow(0, 0, self.width-1, self.height-1)
         self.SetCursor(0, 0)
-
         self.send_command(0x3c)
         self.send_data(0x05)
 
@@ -374,12 +371,10 @@ class EPD:
         else:
             linewidth = int(self.width/8) + 1
         # logger.debug(linewidth)
-
         self.send_command(0x24)
         for j in range(0, self.height):
             for i in range(0, linewidth):
                 self.send_data(color)
-
         self.TurnOnDisplay()
 
     '''
@@ -389,7 +384,6 @@ class EPD:
     def sleep(self):
         self.send_command(0x10) #enter deep sleep
         self.send_data(0x01)
-
         epdconfig.delay_ms(2000)
         epdconfig.module_exit()
 
