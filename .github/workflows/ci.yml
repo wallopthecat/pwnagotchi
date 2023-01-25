@@ -15,8 +15,8 @@ jobs:
     - name: Languages
       run: make langs
 
-    - name: Install
-      run: make install
+    - name: Make all
+      run: make 
 
-    - name: Image
-      run: make image -e PWN_HOSTNAME=pwnagotchi PWN_VERSION=0.0.1
+#     - name: Image
+#       run: make image -e PWN_HOSTNAME=pwnagotchi PWN_VERSION=0.0.1
