@@ -1,13 +1,22 @@
-name: CI
+name: Makefile CI/CD
 
 on: [push, pull_request]
 
 jobs:
   build:
-    name: build image
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: create image
-        run: make image -e PWN_HOSTNAME=pwnagotchi PWN_VERSION=0.0.1
+    - uses: actions/checkout@v3
+
+    - name: Install language dependencies
+      run: sudo apt-get install -y gettext
+
+    - name: Languages
+      run: make langs
+
+    - name: Install
+      run: make install
+
+    - name: Image
+      run: make image -e PWN_HOSTNAME=pwnagotchi PWN_VERSION=0.0.1
