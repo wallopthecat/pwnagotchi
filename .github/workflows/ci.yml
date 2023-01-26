@@ -12,11 +12,16 @@ jobs:
     - name: Install language dependencies
       run: sudo apt-get install -y gettext
 
-    - name: Languages
-      run: make langs
+#     - name: Languages
+#       run: make langs
 
     - name: Make all
-      run: make 
+      run: make
+      
+    - uses: actions/upload-artifact@v3
+      with:
+        name: pwnagotchi-raspios-lite
+        path: pwnagotchi-raspios-lite-**.**.**.**
 
 #     - name: Image
 #       run: make image -e PWN_HOSTNAME=pwnagotchi PWN_VERSION=0.0.1
