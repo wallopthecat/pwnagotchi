@@ -20,8 +20,14 @@ jobs:
       
     - uses: actions/upload-artifact@v3
       with:
-        name: pwnagotchi-raspios-lite
+        name: pwnagotchi-raspios-lite.iso
         path: pwnagotchi-raspios-lite-**.**.**.**
 
 #     - name: Image
 #       run: make image -e PWN_HOSTNAME=pwnagotchi PWN_VERSION=0.0.1
+
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: pwnagotchi-raspios-lite
