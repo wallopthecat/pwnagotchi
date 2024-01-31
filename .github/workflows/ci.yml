@@ -15,7 +15,7 @@ jobs:
         remove-haskell: true
         remove-codeql: true
         remove-docker-images: true
-        root-reserve-mb: 10240
+        root-reserve-mb: 61440
         # temp-reserve-mb: 10240
 
     - uses: actions/checkout@v3
