@@ -15,8 +15,8 @@ jobs:
         remove-haskell: true
         remove-codeql: true
         remove-docker-images: true
-        overprovision-lvm: true
-        # root-reserve-mb: 20480
+        # overprovision-lvm: true
+        root-reserve-mb: 40960
         # temp-reserve-mb: 10240
 
     - uses: actions/checkout@v3
