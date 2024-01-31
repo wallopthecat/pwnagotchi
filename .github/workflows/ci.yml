@@ -16,6 +16,7 @@ jobs:
         remove-codeql: true
         remove-docker-images: true
         root-reserve-mb: 8096
+        temp-reserve-mb: 8096
 
     - uses: actions/checkout@v3
 
