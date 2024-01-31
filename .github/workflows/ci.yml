@@ -1,6 +1,6 @@
 name: Makefile CI/CD
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
@@ -15,6 +15,7 @@ jobs:
         remove-haskell: true
         remove-codeql: true
         remove-docker-images: true
+        root-reserve-mb: 8096
 
     - uses: actions/checkout@v3
 
